@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: hello-world
+  datasource:
+    url: 'jdbc:postgresql://postgres:5432/hello_world_db?prepareThreshold=0'
+    username: 'postgres'
+    password: 'postgres'
+    driver-class-name: org.postgresql.Driver

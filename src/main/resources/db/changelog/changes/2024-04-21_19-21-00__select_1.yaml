@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-04-21_19-21-00__select_1
+      author: sanchellik
+      changes:
+        - sql:
+            sql: SELECT 1;

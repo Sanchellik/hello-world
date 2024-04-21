@@ -1,0 +1,35 @@
+version: '3'
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
+
+services:
+  app:
+    build:
+      context: .
+    container_name: hello-world
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+    ports:
+      - '8080:8080'
+
+  postgres:
+    image: 'postgres:16-alpine'
+    container_name: postgres-16-hello-world
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=hello_world_db
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    networks:
+      - app-network
+    ports:
+      - '5432:5432'
